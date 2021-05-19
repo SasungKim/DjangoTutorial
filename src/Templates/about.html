@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>About</h1>
+
+<p>
+    {{about_text}}, {{about_number}}
+    <ul>
+        {% for items in about_list %}
+            <li>{{forloop.counter}}: {{items}}</li>
+        {% endfor %}
+    </ul>
+</p>
+{% endblock %}
