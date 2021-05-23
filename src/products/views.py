@@ -5,8 +5,9 @@ from .forms import productForm
 
 # HTML form (form only implemented in HTML only)
 def product_create_view(request):
-    print(request.GET['id'])
-    print(request.POST)
+    if request.method == "POST":
+        title = request.POST.get('title')
+        Product.objects.create(title=title)
     context = {}
     return render(request, "products/product_create.html", context)
 
