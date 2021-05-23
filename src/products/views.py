@@ -3,15 +3,23 @@ from .models import Product
 from .forms import productForm
 
 
+# HTML form (form only implemented in HTML only)
 def product_create_view(request):
-    form = productForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = productForm()
-    context = {
-        'form': form
-    }
+    print(request.GET['id'])
+    print(request.POST)
+    context = {}
     return render(request, "products/product_create.html", context)
+
+
+# def product_create_view(request):
+#     form = productForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         form = productForm()
+#     context = {
+#         'form': form
+#     }
+#     return render(request, "products/product_create.html", context)
 
 
 def product_detail_view(request):
